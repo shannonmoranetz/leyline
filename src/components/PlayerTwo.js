@@ -3,9 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default class PlayerTwo extends Component {
 
-  state = {
-    playerTwoLife: 20
-  }
+  state = { playerTwoLife: 20 }
 
   render(){
     return (
