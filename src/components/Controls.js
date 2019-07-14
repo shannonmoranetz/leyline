@@ -7,10 +7,17 @@ export default class Controls extends Component {
     this.props.resetRequest();
   }
 
+  onPressClose = () => {
+    this.props.closeRequest();
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.centerControls}>
+          <TouchableOpacity onPress={this.onPressClose}>
+            <Image source={require('../../assets/close.png')} style={styles.closeIcon}/>
+          </TouchableOpacity>
           <TouchableOpacity onPress={this.onPressReset}>
             <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
           </TouchableOpacity>
@@ -23,23 +30,27 @@ export default class Controls extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'lemonchiffon',
-    borderWidth: 0.5,
-    borderColor: '#000',
     height: '8.5%',
     width: '100%',
-    margin: 'auto'
+    margin: 'auto',
+    borderBottomWidth: 3,
+    borderTopWidth: 3,
+    borderColor: '#000',
   },
   centerControls: {
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   resetIcon: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     resizeMode: 'contain',
-    // borderWidth: 1,
-    // borderColor: '#000',
-    backgroundColor: 'palegreen',
+  },
+  closeIcon: {
+    width: 55,
+    height: 55,
+    resizeMode: 'contain',
   }
 });
