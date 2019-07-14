@@ -1,10 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Controls from './Controls';
+import PlayerOne from './PlayerOne';
+import PlayerTwo from './PlayerTwo';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start a working on your app!</Text>
+      <PlayerTwo/>
+      <Controls/>
+      <PlayerOne/>
     </View>
   );
 }
