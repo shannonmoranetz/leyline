@@ -5,18 +5,22 @@ export default class PlayerOne extends Component {
 
   state = { playerOneLife: 20 }
 
-  onPress = () => {
+  onPressMinus = () => {
     this.setState({ playerOneLife: this.state.playerOneLife - 1 })
+  }
+
+  onPressPlus = () => {
+    this.setState({ playerOneLife: this.state.playerOneLife + 1 })
   }
 
   render(){
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.left} onPress={this.onPress}>
+        <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
           <View ></View>
         </TouchableOpacity>
         <Text style={styles.lifeText}>{this.state.playerOneLife}</Text>
-        <TouchableOpacity style={styles.right} onPress={this.onPress}>
+        <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
           <View ></View>
         </TouchableOpacity>
       </View>
