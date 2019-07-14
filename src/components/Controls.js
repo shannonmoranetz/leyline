@@ -13,7 +13,7 @@ export default function Controls() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: 'lemonchiffon',
     borderWidth: 0.5,
     borderColor: '#000',
     height: '8.5%',

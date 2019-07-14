@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, StatusBar, View } from 'react-native';
 import Controls from './Controls';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
@@ -20,5 +20,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: StatusBar.currentHeight,
   },
 });
