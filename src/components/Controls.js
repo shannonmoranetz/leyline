@@ -1,14 +1,23 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 
-export default function Controls() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.centerControls}>
-        <Text style={styles.controlIcons}>Reset</Text>
+export default class Controls extends Component {
+
+  onPressReset = () => {
+    this.props.resetRequest();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centerControls}>
+          <TouchableOpacity onPress={this.onPressReset}>
+            <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -25,7 +34,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  controlIcons: {
-    textAlign: 'center',
-  },
+  resetIcon: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+    // borderWidth: 1,
+    // borderColor: '#000',
+    backgroundColor: 'palegreen',
+  }
 });

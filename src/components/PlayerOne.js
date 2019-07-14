@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 
 export default class PlayerOne extends Component {
-
+  
   state = { playerOneLife: 20 }
+
+  componentDidUpdate = () => {
+    this.props.shouldReset && this.resetLife()
+  }
 
   onPressMinus = () => {
     this.setState({ playerOneLife: this.state.playerOneLife - 1 })
@@ -13,15 +17,20 @@ export default class PlayerOne extends Component {
     this.setState({ playerOneLife: this.state.playerOneLife + 1 })
   }
 
+  resetLife = () => {
+    this.setState({ playerOneLife: 20 })
+    this.props.resetRequest()
+  }
+
   render(){
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
-          <View ></View>
+          <View></View>
         </TouchableOpacity>
         <Text style={styles.lifeText}>{this.state.playerOneLife}</Text>
         <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
-          <View ></View>
+          <View></View>
         </TouchableOpacity>
       </View>
     );

@@ -5,6 +5,10 @@ export default class PlayerTwo extends Component {
 
   state = { playerTwoLife: 20 }
 
+  componentDidUpdate = () => {
+    this.props.shouldReset && this.resetLife()
+  }
+
   onPressMinus = () => {
     this.setState({ playerTwoLife: this.state.playerTwoLife + 1 })
   }
@@ -13,15 +17,20 @@ export default class PlayerTwo extends Component {
     this.setState({ playerTwoLife: this.state.playerTwoLife - 1 })
   }
 
+  resetLife = () => {
+    this.setState({ playerTwoLife: 20 })
+    this.props.resetRequest()
+  }
+
   render(){
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
-          <View ></View>
+          <View></View>
         </TouchableOpacity>
         <Text style={styles.lifeText}>{this.state.playerTwoLife}</Text>
         <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
-          <View ></View>
+          <View></View>
         </TouchableOpacity>
       </View>
     );
