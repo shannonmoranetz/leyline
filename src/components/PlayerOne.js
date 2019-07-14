@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: '100%',
     borderWidth: 1,
     borderColor: '#000',
-    width: '100%'
+    width: '100%',
   },
   lifeText: {
     fontSize: 100,
@@ -60,5 +60,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '50%',
     left: Dimensions.get('window').width / 2,
-  }
+  },
 });
