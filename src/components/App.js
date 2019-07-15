@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from '../store';
 import { StyleSheet, StatusBar, View, TouchableOpacity, Image } from 'react-native';
 import Controls from './Controls';
 import PlayerOne from './PlayerOne';
@@ -14,11 +16,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <PlayerTwo resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
-        <Controls resetRequest={this.resetRequest}/>
-        <PlayerOne resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <PlayerTwo resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
+          <Controls resetRequest={this.resetRequest}/>
+          <PlayerOne resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
+        </View>
+      </Provider>
     );
   }
 }
