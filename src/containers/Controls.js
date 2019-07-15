@@ -14,6 +14,10 @@ class Controls extends Component {
     this.spin(0, Easing.linear);
   }
 
+  componentDidUpdate = () => {
+    !this.props.isConfirmed && this.spin(1200, Easing.bounce);
+  }
+
   onPressReset = async() => {
     if (this.props.isConfirmed) {
       await this.props.aLifeReset();
@@ -52,7 +56,7 @@ class Controls extends Component {
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Animated.Image source={require('../../assets/reset.png')} 
-                            style={ !this.props.isConfirmed ? {width: 35, height: 35, transform: [{rotate: spin}]} : 
+                            style={ !this.props.isConfirmed ? {width: 35, height: 35, transform: [{rotate: spin}]} :
                             {width: 35, height: 35, transform: [{rotate: spinBack}]} }/>
           </TouchableOpacity>
         </View>

@@ -7,23 +7,28 @@ class PlayerTwo extends Component {
 
   onPressPlus = () => {
     this.props.bLifePlus(this.props.bLife);
+    this.props.isConfirmed && this.props.confirm(false);
   }
 
   onPressMinus = () => {
     this.props.bLife > 0 && this.props.bLifeMinus(this.props.bLife);
+    this.props.isConfirmed && this.props.confirm(false);
   }
 
   onLongPressPlus = () => {
     this.props.bLifePlusMulti(this.props.bLife);
     Vibration.vibrate(30);
+    this.props.isConfirmed && this.props.confirm(false);
   }
 
   onLongPressMinus = () => {
     if ( this.props.bLife !== 0 ) {
       this.props.bLifeMinusMulti(this.props.bLife);
       Vibration.vibrate(30);
+      this.props.isConfirmed && this.props.confirm(false);
     } else {
       this.props.bLifeMinusMulti(this.props.bLife);
+      this.props.isConfirmed && this.props.confirm(false);
     }
   }
 
