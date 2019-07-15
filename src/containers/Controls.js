@@ -55,7 +55,7 @@ class Controls extends Component {
     });
     return (
       <View style={styles.container}>
-        <LinearGradient colors={['rgba(255,183,232,1)', 'rgba(240,240,240,1)', 'rgba(240,240,240,1)', 'rgba(255,183,232,1)'] } locations={[0, .15, 0.85, 1]} style={styles.gradient}>
+        <LinearGradient colors={['rgba(245,245,245,.8)', 'rgba(235,235,235,.8)', 'rgba(235,235,235,.8)', 'rgba(245,245,245,.8)'] } locations={[0, .15, 0.85, 1]} style={styles.gradient}>
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Animated.Image source={require('../../assets/reset.png')} 
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     margin: 'auto',
     borderBottomWidth: 3,
     borderTopWidth: 3,
-    borderColor: '#000',
+    borderColor: 'rgba(250,250,250,.8)',
   },
   buttonPositions: {
     flex: 1,

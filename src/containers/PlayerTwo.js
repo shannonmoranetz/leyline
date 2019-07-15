@@ -95,6 +95,10 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '180deg'}],
     fontFamily: 'Oxygen-Bold',
     letterSpacing: 2,
+    color: '#fff',
+    textShadowColor: '#000',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 4,
   },
   left: {
     height: '100%',

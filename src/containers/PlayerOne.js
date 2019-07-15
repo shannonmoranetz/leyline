@@ -94,6 +94,10 @@ const styles = StyleSheet.create({
     zIndex: 100,
     fontFamily: 'Oxygen-Bold',
     letterSpacing: 2,
+    color: '#fff',
+    textShadowColor: '#000',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 4,
   },
   left: {
     height: '100%',
