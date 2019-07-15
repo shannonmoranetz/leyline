@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti, confirm } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Vibration } from 'react-native';
+import * as Font from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 
 class PlayerTwo extends Component {
+
+  state = { fontLoaded: false, };
+
+  componentDidMount = async() => {
+    await Font.loadAsync({
+      'Oxygen-Bold': require('../../assets/Oxygen-Bold.ttf'),
+    });
+    this.setState({ fontLoaded: true });
+  }
 
   onPressPlus = () => {
     this.props.bLifePlus(this.props.bLife);
@@ -42,7 +52,7 @@ class PlayerTwo extends Component {
           </LinearGradient>
         </TouchableOpacity>
         <View pointerEvents='none'>
-          <Text style={styles.lifeText}>{this.props.bLife}</Text>
+          { this.state.fontLoaded ? (<Text style={styles.lifeText}>{this.props.bLife}</Text>) : null }
         </View>
         <TouchableOpacity style={styles.right} onPress={this.onPressMinus} onLongPress={this.onLongPressMinus}>
           <LinearGradient colors={['rgba(5,131,77,1)', 'rgba(57,198,137,1)', 'rgba(125,236,187,1)', 'rgba(239,255,245,1)'] } style={styles.gradient}>
@@ -80,9 +90,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   lifeText: {
-    fontSize: 128,
+    fontSize: 132,
     zIndex: 100,
     transform: [{ rotate: '180deg'}],
+    fontFamily: 'Oxygen-Bold',
+    letterSpacing: 2,
   },
   left: {
     height: '100%',

@@ -59,8 +59,8 @@ class Controls extends Component {
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Animated.Image source={require('../../assets/reset.png')} 
-                            style={ !this.props.isConfirmed ? {width: 35, height: 35, transform: [{rotate: spin}]} :
-                            {width: 35, height: 35, transform: [{rotate: spinBack}]} }/>
+                            style={ !this.props.isConfirmed ? {width: 30, height: 30, transform: [{rotate: spin}]} :
+                            {width: 30, height: 30, transform: [{rotate: spinBack}]} }/>
           </TouchableOpacity>
         </View>
         </LinearGradient>
