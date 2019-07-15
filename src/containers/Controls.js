@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { aLifeReset, bLifeReset, confirm } from '../actions';
-import { StyleSheet, Image, View, TouchableOpacity, Animated, Easing } from 'react-native';
+import { StyleSheet, Image, View, TouchableOpacity, Animated, Easing, Vibration } from 'react-native';
 
 class Controls extends Component {
 
@@ -22,6 +22,7 @@ class Controls extends Component {
     if (this.props.isConfirmed) {
       await this.props.aLifeReset();
       await this.props.bLifeReset();
+      Vibration.vibrate([0, 90, 85, 90]);
       await this.props.confirm(false)
       this.spin(800, Easing.bounce);
     } else {
