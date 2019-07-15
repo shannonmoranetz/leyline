@@ -19,7 +19,9 @@ class PlayerTwo extends Component {
         <TouchableOpacity style={styles.left} onPress={this.onPressPlus}>
           <View></View>
         </TouchableOpacity>
-        <Text style={styles.lifeText}>{this.props.bLife}</Text>
+        <View pointerEvents='none'>
+          <Text style={styles.lifeText}>{this.props.bLife}</Text>
+        </View>          
         <TouchableOpacity style={styles.right} onPress={this.onPressMinus}>
           <View></View>
         </TouchableOpacity>
@@ -43,15 +45,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '100%',
     width: '100%',
+    backgroundColor: '#fff',
   },
   lifeText: {
-    fontSize: 100,
-    zIndex: 200,
+    fontSize: 128,
+    zIndex: 100,
     transform: [{ rotate: '180deg'}],
   },
   left: {
@@ -67,5 +69,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '50%',
     left: Dimensions.get('window').width / 2,
+    zIndex: -100
   },
 });

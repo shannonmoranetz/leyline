@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { aLifePlus, aLifeMinus } from '../actions';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, pointerEvents } from 'react-native';
 
 class PlayerOne extends Component {
 
@@ -19,7 +19,9 @@ class PlayerOne extends Component {
         <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
           <View></View>
         </TouchableOpacity>
-        <Text style={styles.lifeText}>{this.props.aLife}</Text>
+        <View pointerEvents='none'>
+          <Text style={styles.lifeText}>{this.props.aLife}</Text>
+        </View>
         <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
           <View></View>
         </TouchableOpacity>
@@ -43,15 +45,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '100%',
     width: '100%',
+    backgroundColor: '#fff',
   },
   lifeText: {
-    fontSize: 100,
-    zIndex: 200,
+    fontSize: 128,
+    zIndex: 100
   },
   left: {
     backgroundColor: 'powderblue',
@@ -66,5 +68,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '50%',
     left: Dimensions.get('window').width / 2,
+    zIndex: -100
   },
 });
