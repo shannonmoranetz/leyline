@@ -55,7 +55,7 @@ class Controls extends Component {
     });
     return (
       <View style={styles.container}>
-        <LinearGradient colors={['rgba(195,195,195,1) 10%', 'rgba(255,209,222,1) 15%', 'rgba(255,255,255,1) 100%'] } style={styles.gradient}>
+        <LinearGradient colors={['rgba(255,183,232,1)', 'rgba(240,240,240,1)', 'rgba(240,240,240,1)', 'rgba(255,183,232,1)'] } locations={[0, .15, 0.85, 1]} style={styles.gradient}>
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Animated.Image source={require('../../assets/reset.png')} 
