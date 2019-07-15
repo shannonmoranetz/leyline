@@ -7,17 +7,10 @@ export default class Controls extends Component {
     this.props.resetRequest();
   }
 
-  onPressClose = () => {
-    this.props.closeRequest();
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.centerControls}>
-          <TouchableOpacity onPress={this.onPressClose}>
-            <Image source={require('../../assets/close.png')} style={styles.closeIcon}/>
-          </TouchableOpacity>
           <TouchableOpacity onPress={this.onPressReset}>
             <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
           </TouchableOpacity>
@@ -46,11 +39,6 @@ const styles = StyleSheet.create({
   resetIcon: {
     width: 35,
     height: 35,
-    resizeMode: 'contain',
-  },
-  closeIcon: {
-    width: 55,
-    height: 55,
     resizeMode: 'contain',
   }
 });
