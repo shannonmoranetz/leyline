@@ -47,20 +47,20 @@ class Controls extends Component {
   render() {
     const spin = this.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['280deg', '0deg']
+      outputRange: ['265deg', '0deg']
     });
     const spinBack = this.spinValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['0deg', '280deg']
+      outputRange: ['0deg', '265deg']
     });
     return (
       <View style={styles.container}>
         <LinearGradient colors={['rgba(245,245,245,.8)', 'rgba(235,235,235,.8)', 'rgba(235,235,235,.8)', 'rgba(245,245,245,.8)'] } locations={[0, .15, 0.85, 1]} style={styles.gradient}>
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
-            <Animated.Image source={require('../../assets/reset.png')} 
-                            style={ !this.props.isConfirmed ? {width: 30, height: 30, transform: [{rotate: spin}]} :
-                            {width: 30, height: 30, transform: [{rotate: spinBack}]} }/>
+            <Animated.Image source={require('../../assets/reset2.png')} 
+                            style={ !this.props.isConfirmed ? {width: 40, height: 40, transform: [{rotate: spin}]} :
+                            {width: 40, height: 40, transform: [{rotate: spinBack}]} }/>
           </TouchableOpacity>
         </View>
         </LinearGradient>
