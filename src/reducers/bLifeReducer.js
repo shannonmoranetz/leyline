@@ -9,7 +9,11 @@ export function bLifeReducer(state = 20, action) {
     case B_LIFE_MINUS:
       return action.bLife - 1;
     case B_LIFE_MINUS_MULTI:
-      return action.bLife - 5;
+      if (action.bLife > 5) {
+        return action.bLife - 5;
+      } else {
+        return 0;
+      }
     case B_LIFE_RESET:
       return 20;
     default:

@@ -9,7 +9,11 @@ export function aLifeReducer(state = 20, action) {
     case A_LIFE_MINUS:
       return action.aLife - 1;
     case A_LIFE_MINUS_MULTI:
-      return action.aLife - 5;
+      if (action.aLife > 5) {
+        return action.aLife - 5;
+      } else {
+        return 0;
+      }
     case A_LIFE_RESET:
       return 20;
     default:

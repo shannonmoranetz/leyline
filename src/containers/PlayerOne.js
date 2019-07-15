@@ -10,7 +10,7 @@ class PlayerOne extends Component {
   }
 
   onPressMinus = () => {
-    this.props.aLifeMinus(this.props.aLife);
+    this.props.aLife > 0 && this.props.aLifeMinus(this.props.aLife);
   }
 
   onLongPressPlus = () => {
@@ -19,8 +19,12 @@ class PlayerOne extends Component {
   }
 
   onLongPressMinus = () => {
-    this.props.aLifeMinusMulti(this.props.aLife);
-    Vibration.vibrate(30);
+    if ( this.props.aLife !== 0 ) {
+      this.props.aLifeMinusMulti(this.props.aLife);
+      Vibration.vibrate(30);
+    } else {
+      this.props.aLifeMinusMulti(this.props.aLife);
+    }
   }
 
   render(){
