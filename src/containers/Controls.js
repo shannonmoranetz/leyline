@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { aLifeReset, bLifeReset, confirm } from '../actions';
 import { StyleSheet, Image, View, TouchableOpacity, Animated, Easing, Vibration } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 class Controls extends Component {
 
@@ -54,6 +55,7 @@ class Controls extends Component {
     });
     return (
       <View style={styles.container}>
+        <LinearGradient colors={['rgba(195,195,195,1) 10%', 'rgba(255,209,222,1) 15%', 'rgba(255,255,255,1) 100%'] } style={styles.gradient}>
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Animated.Image source={require('../../assets/reset.png')} 
@@ -61,6 +63,7 @@ class Controls extends Component {
                             {width: 35, height: 35, transform: [{rotate: spinBack}]} }/>
           </TouchableOpacity>
         </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -80,7 +83,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Controls);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'lemonchiffon',
     height: '8.5%',
     width: '100%',
     margin: 'auto',
@@ -93,5 +95,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-  }
+  },
+  gradient: {
+    flex: 1,
+  },
 });

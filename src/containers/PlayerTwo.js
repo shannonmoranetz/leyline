@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti, confirm } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Vibration } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 class PlayerTwo extends Component {
 
@@ -36,13 +37,17 @@ class PlayerTwo extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.left} onPress={this.onPressPlus} onLongPress={this.onLongPressPlus}>
-          <View></View>
+          <LinearGradient colors={['rgba(207,242,221,1)', 'rgba(166,244,147,1)', 'rgba(121,218,175,1)', 'rgba(5,131,77,1)'] } style={styles.gradient}>
+            <View></View>
+          </LinearGradient>
         </TouchableOpacity>
         <View pointerEvents='none'>
           <Text style={styles.lifeText}>{this.props.bLife}</Text>
-        </View>          
+        </View>
         <TouchableOpacity style={styles.right} onPress={this.onPressMinus} onLongPress={this.onLongPressMinus}>
-          <View></View>
+          <LinearGradient colors={['rgba(207,242,221,1)', 'rgba(166,244,147,1)', 'rgba(121,218,175,1)', 'rgba(5,131,77,1)'] } style={styles.gradient}>
+            <View></View>
+          </LinearGradient>
         </TouchableOpacity>
       </View>
     );
@@ -80,18 +85,19 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '180deg'}],
   },
   left: {
-    backgroundColor: 'lightpink',
     height: '100%',
     position: 'absolute',
     width: '50%',
     left: 0,
   },
   right: {
-    backgroundColor: 'lightpink',
     height: '100%',
     position: 'absolute',
     width: '50%',
     left: Dimensions.get('window').width / 2,
     zIndex: -100
+  },
+  gradient: {
+    flex: 1,
   },
 });
