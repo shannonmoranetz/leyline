@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { aLifeReset, bLifeReset } from '../actions';
 import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 
-export default class Controls extends Component {
+class Controls extends Component {
+
+  onPressReset = async() => {
+    await this.props.aLifeReset();
+    await this.props.bLifeReset();
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.centerControls}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.onPressReset}>
             <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
           </TouchableOpacity>
         </View>
@@ -15,6 +22,18 @@ export default class Controls extends Component {
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  aLife: state.aLife,
+  bLife: state.bLife,
+});
+
+export const mapDispatchToProps = dispatch => ({
+  aLifeReset: () => dispatch(aLifeReset()),
+  bLifeReset: () => dispatch(bLifeReset()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Controls);
 
 const styles = StyleSheet.create({
   container: {
