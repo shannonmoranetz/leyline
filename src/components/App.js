@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import store from '../store';
 import { Provider } from 'react-redux';
 import { StyleSheet, StatusBar, View } from 'react-native';
-import Controls from './Controls';
-import PlayerOne from './PlayerOne';
-import PlayerTwo from './PlayerTwo';
+import Controls from '../containers/Controls';
+import PlayerOne from '../containers/PlayerOne';
+import PlayerTwo from '../containers/PlayerTwo';
 
 class App extends Component {
 
