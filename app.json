@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "leyline",
+    "name": "Leyline",
     "slug": "leyline",
     "privacy": "public",
     "sdkVersion": "33.0.0",
@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A simple Magic the Gathering life tracking app with a clean user interface. Currently in development with regular future updates planned.",
+    "githubUrl": "https://github.com/shannonmoranetz/leyline"
   }
 }
