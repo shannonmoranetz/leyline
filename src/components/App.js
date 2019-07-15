@@ -8,19 +8,13 @@ import PlayerTwo from './PlayerTwo';
 
 export default class App extends Component {
 
-  state = { reset: false }
-
-  resetRequest = () => {
-    this.setState({ reset: !this.state.reset })
-  }
-
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <PlayerTwo resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
-          <Controls resetRequest={this.resetRequest}/>
-          <PlayerOne resetRequest={this.resetRequest} shouldReset={this.state.reset}/>
+          <PlayerTwo/>
+          <Controls/>
+          <PlayerOne/>
         </View>
       </Provider>
     );
@@ -35,5 +29,5 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     marginTop: StatusBar.currentHeight,
     backgroundColor: 'powderblue',
-  }
+  },
 });

@@ -3,15 +3,11 @@ import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
 
 export default class Controls extends Component {
 
-  onPressReset = () => {
-    this.props.resetRequest();
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.centerControls}>
-          <TouchableOpacity onPress={this.onPressReset}>
+          <TouchableOpacity>
             <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
           </TouchableOpacity>
         </View>

@@ -3,22 +3,22 @@ export const A_LIFE_MINUS = 'A_LIFE_MINUS';
 export const B_LIFE_PLUS = 'B_LIFE_PLUS';
 export const B_LIFE_MINUS = 'B_LIFE_MINUS';
 
-export const ALifePlus = ALife => ({
+export const aLifePlus = aLife => ({
   type: A_LIFE_PLUS,
-  ALife
+  aLife
 });
 
-export const ALifeMinus = ALife => ({
+export const aLifeMinus = aLife => ({
   type: A_LIFE_MINUS,
-  ALife
+  aLife
 });
 
-export const BLifePlus = BLife => ({
+export const bLifePlus = bLife => ({
   type: B_LIFE_PLUS,
-  BLife
+  bLife
 });
 
-export const BLifeMinus = BLife => ({
+export const bLifeMinus = bLife => ({
   type: B_LIFE_MINUS,
-  BLife
+  bLife
 });

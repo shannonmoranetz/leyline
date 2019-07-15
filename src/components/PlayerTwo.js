@@ -1,41 +1,43 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bLifePlus, bLifeMinus } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 
-export default class PlayerTwo extends Component {
+class PlayerTwo extends Component {
 
-  state = { playerTwoLife: 20 }
-
-  componentDidUpdate = () => {
-    this.props.shouldReset && this.resetLife()
+  onPressPlus = () => {
+    this.props.bLifePlus(this.props.bLife);
   }
 
   onPressMinus = () => {
-    this.setState({ playerTwoLife: this.state.playerTwoLife + 1 })
-  }
-
-  onPressPlus = () => {
-    this.setState({ playerTwoLife: this.state.playerTwoLife - 1 })
-  }
-
-  resetLife = () => {
-    this.setState({ playerTwoLife: 20 })
-    this.props.resetRequest()
+    this.props.bLifeMinus(this.props.bLife);
   }
 
   render(){
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
+        <TouchableOpacity style={styles.left} onPress={this.onPressPlus}>
           <View></View>
         </TouchableOpacity>
-        <Text style={styles.lifeText}>{this.state.playerTwoLife}</Text>
-        <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
+        <Text style={styles.lifeText}>{this.props.bLife}</Text>
+        <TouchableOpacity style={styles.right} onPress={this.onPressMinus}>
           <View></View>
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  bLife: state.bLife,
+});
+
+export const mapDispatchToProps = dispatch => ({
+  bLifePlus: (bLife) => dispatch(bLifePlus(bLife)),
+  bLifeMinus: (bLife) => dispatch(bLifeMinus(bLife)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerTwo);
 
 const styles = StyleSheet.create({
   container: {
