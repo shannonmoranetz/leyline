@@ -37,7 +37,7 @@ class PlayerOne extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.left} onPress={this.onPressMinus} onLongPress={this.onLongPressMinus}>
-          <LinearGradient colors={['rgba(137,136,168,1)', 'rgba(75,189,203,1)', 'rgba(20,227,207,1)', 'rgba(227,227,227,1)'] } style={styles.gradient}>
+          <LinearGradient colors={['rgba(211,255,252,1)', 'rgba(64,219,241,1)', 'rgba(20,168,224,1)', 'rgba(10,118,179,1)'] } style={styles.gradient}>
             <View></View>
           </LinearGradient>
         </TouchableOpacity>
@@ -45,7 +45,7 @@ class PlayerOne extends Component {
           <Text style={styles.lifeText}>{this.props.aLife}</Text>
         </View>
         <TouchableOpacity style={styles.right} onPress={this.onPressPlus} onLongPress={this.onLongPressPlus}>
-          <LinearGradient colors={['rgba(137,136,168,1)', 'rgba(75,189,203,1)', 'rgba(20,227,207,1)', 'rgba(227,227,227,1)'] } style={styles.gradient}>
+          <LinearGradient colors={['rgba(211,255,252,1)', 'rgba(64,219,241,1)', 'rgba(20,168,224,1)', 'rgba(10,118,179,1)'] } style={styles.gradient}>
             <View></View>
           </LinearGradient>
         </TouchableOpacity>
