@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti } from '../actions';
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Vibration } from 'react-native';
 
 class PlayerTwo extends Component {
 
@@ -15,10 +15,12 @@ class PlayerTwo extends Component {
 
   onLongPressPlus = () => {
     this.props.bLifePlusMulti(this.props.bLife);
+    Vibration.vibrate(30);
   }
 
   onLongPressMinus = () => {
     this.props.bLifeMinusMulti(this.props.bLife);
+    Vibration.vibrate(30);
   }
 
   render(){
