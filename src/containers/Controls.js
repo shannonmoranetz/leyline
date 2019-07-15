@@ -1,21 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { aLifeReset, bLifeReset } from '../actions';
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { aLifeReset, bLifeReset, confirm } from '../actions';
+import { StyleSheet, Image, View, TouchableOpacity, Animated, Easing } from 'react-native';
 
 class Controls extends Component {
 
+  constructor() {
+    super();
+    this.spinValue = new Animated.Value(0);
+  }
+
+  componentDidMount = () => {
+    this.spin(0, Easing.linear);
+  }
+
   onPressReset = async() => {
-    await this.props.aLifeReset();
-    await this.props.bLifeReset();
+    if (this.props.isConfirmed) {
+      await this.props.aLifeReset();
+      await this.props.bLifeReset();
+      await this.props.confirm(false)
+      this.spin(800, Easing.bounce);
+    } else {
+      await this.props.confirm(true)
+      this.spin(300, Easing.ease);
+    }
+  }
+
+  spin = (timing, ease) => {
+    this.spinValue.setValue(0)
+    Animated.timing(
+      this.spinValue,
+      {
+        toValue: 1,
+        duration: timing,
+        easing: ease
+      }
+    ).start();
   }
 
   render() {
+    const spin = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['280deg', '0deg']
+    });
+    const spinBack = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '280deg']
+    });
     return (
       <View style={styles.container}>
         <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
-            <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
+            <Animated.Image source={require('../../assets/reset.png')} 
+                            style={ !this.props.isConfirmed ? {width: 35, height: 35, transform: [{rotate: spin}]} : 
+                            {width: 35, height: 35, transform: [{rotate: spinBack}]} }/>
           </TouchableOpacity>
         </View>
       </View>
@@ -23,12 +61,17 @@ class Controls extends Component {
   }
 }
 
+export const mapStateToProps = state => ({
+  isConfirmed: state.isConfirmed,
+});
+
 export const mapDispatchToProps = dispatch => ({
   aLifeReset: () => dispatch(aLifeReset()),
   bLifeReset: () => dispatch(bLifeReset()),
+  confirm: (isConfirmed) => dispatch(confirm(isConfirmed)),
 });
 
-export default connect(null, mapDispatchToProps)(Controls);
+export default connect(mapStateToProps, mapDispatchToProps)(Controls);
 
 const styles = StyleSheet.create({
   container: {
@@ -45,10 +88,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-  },
-  resetIcon: {
-    width: 35,
-    height: 35,
-    resizeMode: 'contain',
-  },
+  }
 });

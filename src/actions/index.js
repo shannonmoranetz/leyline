@@ -1,3 +1,4 @@
+export const CONFIRM = 'CONFIRM';
 export const A_LIFE_PLUS = 'A_LIFE_PLUS';
 export const A_LIFE_PLUS_MULTI = 'A_LIFE_PLUS_MULTI';
 export const A_LIFE_MINUS = 'A_LIFE_MINUS';
@@ -8,6 +9,11 @@ export const B_LIFE_PLUS_MULTI = 'B_LIFE_PLUS_MULTI';
 export const B_LIFE_MINUS = 'B_LIFE_MINUS';
 export const B_LIFE_MINUS_MULTI = 'B_LIFE_MINUS_MULTI';
 export const B_LIFE_RESET = 'B_LIFE_RESET';
+
+export const confirm = isConfirmed => ({
+  type: CONFIRM,
+  isConfirmed
+});
 
 export const aLifePlus = aLife => ({
   type: A_LIFE_PLUS,

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { aLifePlus, aLifePlusMulti, aLifeMinus, aLifeMinusMulti } from '../actions';
+import { aLifePlus, aLifePlusMulti, aLifeMinus, aLifeMinusMulti, confirm } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Vibration } from 'react-native';
 
 class PlayerOne extends Component {
 
   onPressPlus = () => {
     this.props.aLifePlus(this.props.aLife);
+    this.props.isConfirmed && this.props.confirm(false)
   }
 
   onPressMinus = () => {
@@ -46,6 +47,7 @@ class PlayerOne extends Component {
 
 export const mapStateToProps = state => ({
   aLife: state.aLife,
+  isConfirmed: state.isConfirmed,
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -53,6 +55,7 @@ export const mapDispatchToProps = dispatch => ({
   aLifePlusMulti: (aLife) => dispatch(aLifePlusMulti(aLife)),
   aLifeMinus: (aLife) => dispatch(aLifeMinus(aLife)),
   aLifeMinusMulti: (aLife) => dispatch(aLifeMinusMulti(aLife)),
+  confirm: (isConfirmed) => dispatch(confirm(isConfirmed)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerOne);

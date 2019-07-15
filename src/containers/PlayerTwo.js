@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti } from '../actions';
+import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti, confirm } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Vibration } from 'react-native';
 
 class PlayerTwo extends Component {
@@ -46,6 +46,7 @@ class PlayerTwo extends Component {
 
 export const mapStateToProps = state => ({
   bLife: state.bLife,
+  isConfirmed: state.isConfirmed,
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -53,6 +54,7 @@ export const mapDispatchToProps = dispatch => ({
   bLifePlusMulti: (bLife) => dispatch(bLifePlusMulti(bLife)),
   bLifeMinus: (bLife) => dispatch(bLifeMinus(bLife)),
   bLifeMinusMulti: (bLife) => dispatch(bLifeMinusMulti(bLife)),
+  confirm: (isConfirmed) => dispatch(confirm(isConfirmed)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerTwo);
