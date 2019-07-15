@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bLifePlus, bLifeMinus } from '../actions';
+import { bLifePlus, bLifePlusMulti, bLifeMinus, bLifeMinusMulti } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 
 class PlayerTwo extends Component {
@@ -13,16 +13,24 @@ class PlayerTwo extends Component {
     this.props.bLifeMinus(this.props.bLife);
   }
 
+  onLongPressPlus = () => {
+    this.props.bLifePlusMulti(this.props.bLife);
+  }
+
+  onLongPressMinus = () => {
+    this.props.bLifeMinusMulti(this.props.bLife);
+  }
+
   render(){
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.left} onPress={this.onPressPlus}>
+        <TouchableOpacity style={styles.left} onPress={this.onPressPlus} onLongPress={this.onLongPressPlus}>
           <View></View>
         </TouchableOpacity>
         <View pointerEvents='none'>
           <Text style={styles.lifeText}>{this.props.bLife}</Text>
         </View>          
-        <TouchableOpacity style={styles.right} onPress={this.onPressMinus}>
+        <TouchableOpacity style={styles.right} onPress={this.onPressMinus} onLongPress={this.onLongPressMinus}>
           <View></View>
         </TouchableOpacity>
       </View>
@@ -36,7 +44,9 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   bLifePlus: (bLife) => dispatch(bLifePlus(bLife)),
+  bLifePlusMulti: (bLife) => dispatch(bLifePlusMulti(bLife)),
   bLifeMinus: (bLife) => dispatch(bLifeMinus(bLife)),
+  bLifeMinusMulti: (bLife) => dispatch(bLifeMinusMulti(bLife)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerTwo);

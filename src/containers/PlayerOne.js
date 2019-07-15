@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { aLifePlus, aLifeMinus } from '../actions';
+import { aLifePlus, aLifePlusMulti, aLifeMinus, aLifeMinusMulti } from '../actions';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, pointerEvents } from 'react-native';
 
 class PlayerOne extends Component {
@@ -13,16 +13,24 @@ class PlayerOne extends Component {
     this.props.aLifeMinus(this.props.aLife);
   }
 
+  onLongPressPlus = () => {
+    this.props.aLifePlusMulti(this.props.aLife);
+  }
+
+  onLongPressMinus = () => {
+    this.props.aLifeMinusMulti(this.props.aLife);
+  }
+
   render(){
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.left} onPress={this.onPressMinus}>
+        <TouchableOpacity style={styles.left} onPress={this.onPressMinus} onLongPress={this.onLongPressMinus}>
           <View></View>
         </TouchableOpacity>
         <View pointerEvents='none'>
           <Text style={styles.lifeText}>{this.props.aLife}</Text>
         </View>
-        <TouchableOpacity style={styles.right} onPress={this.onPressPlus}>
+        <TouchableOpacity style={styles.right} onPress={this.onPressPlus} onLongPress={this.onLongPressPlus}>
           <View></View>
         </TouchableOpacity>
       </View>
@@ -36,7 +44,9 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   aLifePlus: (aLife) => dispatch(aLifePlus(aLife)),
+  aLifePlusMulti: (aLife) => dispatch(aLifePlusMulti(aLife)),
   aLifeMinus: (aLife) => dispatch(aLifeMinus(aLife)),
+  aLifeMinusMulti: (aLife) => dispatch(aLifeMinusMulti(aLife)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerOne);
