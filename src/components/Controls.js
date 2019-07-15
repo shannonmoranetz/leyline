@@ -13,7 +13,7 @@ class Controls extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.centerControls}>
+        <View style={styles.buttonPositions}>
           <TouchableOpacity onPress={this.onPressReset}>
             <Image source={require('../../assets/reset.png')} style={styles.resetIcon}/>
           </TouchableOpacity>
@@ -23,17 +23,12 @@ class Controls extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  aLife: state.aLife,
-  bLife: state.bLife,
-});
-
 export const mapDispatchToProps = dispatch => ({
   aLifeReset: () => dispatch(aLifeReset()),
   bLifeReset: () => dispatch(bLifeReset()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Controls);
+export default connect(null, mapDispatchToProps)(Controls);
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 3,
     borderColor: '#000',
   },
-  centerControls: {
+  buttonPositions: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -55,5 +50,5 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     resizeMode: 'contain',
-  }
+  },
 });

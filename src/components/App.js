@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import store from '../store';
-import { StyleSheet, StatusBar, View, TouchableOpacity, Image } from 'react-native';
+import { Provider } from 'react-redux';
+import { StyleSheet, StatusBar, View } from 'react-native';
 import Controls from './Controls';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 
-export default class App extends Component {
+class App extends Component {
 
   render() {
     return (
@@ -20,6 +20,8 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
