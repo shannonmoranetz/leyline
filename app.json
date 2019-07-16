@@ -5,7 +5,6 @@
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
-      "ios",
       "android",
       "web"
     ],
@@ -17,15 +16,19 @@
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
+    "android": {
+      "package": "com.leyline",
+      "adaptiveIcon": {
+        "backgroundImage": "./assets/icon-bg.png",
+        "foregroundImage": "./assets/icon-fg.png"
+      }
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "description": "A simple Magic the Gathering life tracking app with a clean user interface. Currently in development with regular future updates planned.",
     "githubUrl": "https://github.com/shannonmoranetz/leyline"
   }
