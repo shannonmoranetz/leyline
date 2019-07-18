@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { activateKeepAwake } from 'expo-keep-awake';
 import store from '../store';
 import { Provider } from 'react-redux';
 import { StyleSheet, StatusBar, View } from 'react-native';
@@ -7,6 +8,10 @@ import PlayerOne from '../containers/PlayerOne';
 import PlayerTwo from '../containers/PlayerTwo';
 
 class App extends Component {
+
+  componentDidMount = () => {
+    activateKeepAwake();
+  }
 
   render() {
     return (
