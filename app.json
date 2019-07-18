@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "backgroundImage": "./assets/icon-bg.png",
         "foregroundImage": "./assets/icon-fg.png"
-      }
+      },
+      "versionCode": 2
     },
     "updates": {
       "fallbackToCacheTimeout": 0
